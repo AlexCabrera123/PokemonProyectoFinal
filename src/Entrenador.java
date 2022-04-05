@@ -39,4 +39,5 @@ public class Entrenador extends Personaje{
         //le propongo uno de la pokedex
         //y con random true o false acepta
         //si true
+        //get (add/remove)
 }
