@@ -31,14 +31,13 @@ public class Tienda {
 
     //metodos
 
-    public boolean usuarioComprar(double dinero, int cantidad, int indiceObjeto){
+    public boolean usuarioComprar(double dinero, int cantidad, int indiceObjeto) {
 
 
         //validar que hay suficientes objetos del tipo requerido (?)
-        if(indiceObjeto > objetosDisponibles.size()){
+        if (indiceObjeto > objetosDisponibles.size()) {
             System.out.println("ERROR NO EXISTE ESE OBJETO");
-        }
-        else {
+        } else {
             if (objetosDisponibles.get(indiceObjeto).cantidad >= cantidad) {
                 double precioTotal = cantidad * objetosDisponibles.get(indiceObjeto).costo;
                 if (precioTotal >= dinero) {
@@ -47,12 +46,11 @@ public class Tienda {
                     System.out.println("NO LE ALCANZA, LE FALTAN: " + (precioTotal - dinero));
                     return false;
                 }
-            }
-                else{
-                    System.out.println("NO TENEMOS LA CANTIDAD SOLICITADA");
+            } else {
+                System.out.println("NO TENEMOS LA CANTIDAD SOLICITADA");
                 return false;
-                }
             }
+        }
         //Si hay cantidad y existe en el arreglo
         //si si tengo, validar que el dinero sea suficiente
         //si es suficiente, le vendo
@@ -60,12 +58,12 @@ public class Tienda {
         //mostrar que no le alcanza
         // si no
         //hacemos excepcion de que no hay producto y se repite la pregunta
+        return false;
     }
     //comprar
 
     public boolean usuarioVender(Objeto objeto, int cantidad){
-
-
+        //pocion y pokebola son lo que se puede vender
         //logica inversa de comprar
         //el caso unico donde no podemos comprarle al usuario es cuando quiera vendernos una baya
         //dinero infinito en la tienda
