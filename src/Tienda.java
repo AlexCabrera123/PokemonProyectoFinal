@@ -64,6 +64,8 @@ public class Tienda {
     //comprar
 
     public boolean usuarioVender(Objeto objeto, int cantidad){
+
+
         //logica inversa de comprar
         //el caso unico donde no podemos comprarle al usuario es cuando quiera vendernos una baya
         //dinero infinito en la tienda
