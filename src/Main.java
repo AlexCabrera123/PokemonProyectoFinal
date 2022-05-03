@@ -12,5 +12,13 @@ public class Main {
         System.out.println(miTiendita.usuarioComprar(30.3,1,0));
         miTiendita.usuarioVender(pocion1,4);
         miTiendita.usuarioVender(pokebolaUltra, 2);
+        Pokebola pokebolaMega = new Pokebola(20,5,"Pokebola Mega","Mega",40);
+        paraTienda.add(pokebolaMega);
+        miTiendita.usuarioVender(pokebolaMega,1);
+
+        Baya azul = new Baya(20,4,"Baya fuerza","Fuerza","dar mas fuerza",40);
+        paraTienda.add(azul);
+        miTiendita.usuarioVender(azul,2);
+
     }
 }
