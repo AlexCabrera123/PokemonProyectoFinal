@@ -63,6 +63,22 @@ public class Tienda {
     //comprar
 
     public boolean usuarioVender(Objeto objeto, int cantidad){
+            if (objeto.getClass() == Baya.class) {
+                System.out.println("No se pueden vender bayas");
+                return false;}
+                if (objeto.getClass() == Pokebola.class) {
+                    int contPoke= objeto.getCantidad() - cantidad;
+                    System.out.println("Venta exitosa");
+                    System.out.println("Tienes: " + contPoke + "Pokebolas");
+                    return false;}
+                else if(objeto.getClass() == Pocion.class ){
+                    int contPocion= objeto.cantidad - cantidad;
+                    System.out.println("Venta exitosa");
+                    System.out.println("Tienes: " + contPocion + " Pociones");
+                    return false;}
+
+
+
         //pocion y pokebola son lo que se puede vender
         //logica inversa de comprar
         //el caso unico donde no podemos comprarle al usuario es cuando quiera vendernos una baya
