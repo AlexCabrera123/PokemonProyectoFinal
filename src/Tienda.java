@@ -63,30 +63,22 @@ public class Tienda {
     //comprar
 
     public boolean usuarioVender(Objeto objeto, int cantidad){
-            if (objeto.getClass() == Baya.class) {
+            if (objeto.getClass().equals(Baya.class)) {
                 System.out.println("No se pueden vender bayas");
-                return false;}
-                if (objeto.getClass() == Pokebola.class) {
-                    int contPoke= objeto.getCantidad() - cantidad;
-                    System.out.println("Venta exitosa");
-                    System.out.println("Tienes: " + contPoke + "Pokebolas");
-                    return false;}
-                else if(objeto.getClass() == Pocion.class ){
-                    int contPocion= objeto.cantidad - cantidad;
-                    System.out.println("Venta exitosa");
-                    System.out.println("Tienes: " + contPocion + " Pociones");
-                    return false;}
-
-
-
-        //pocion y pokebola son lo que se puede vender
-        //logica inversa de comprar
-        //el caso unico donde no podemos comprarle al usuario es cuando quiera vendernos una baya
-        //dinero infinito en la tienda
-        //recibir los objetos y aumentar el dinero del jugador
-
-
-        return false;
+                return false;
+            }else {
+                for (Objeto elemento : objetosDisponibles) {
+                    if (elemento.nombre.equals(objeto.nombre)){
+                        elemento.cantidad += cantidad;
+                        System.out.println("Comprando objeto existente");
+                        return true;
+                    }
+                }
+                objetosDisponibles.add(objeto);
+                objetosDisponibles.get(objetosDisponibles.size()-1).cantidad = cantidad;
+                System.out.println("Comprando objeto nuevo en la tienda");
+                return true;
+            }
     }
 
     public void mostrarDisponibles(){
@@ -95,7 +87,7 @@ public class Tienda {
         int indice = 1;
         for(Objeto objeto: objetosDisponibles){
             System.out.println( indice+ " - ");  //1 - Pociòn vida
-            System.out.println();  //falta implementar toString en objeto
+            System.out.println(objeto);  //falta implementar toString en objeto
             indice++;
         }
     }
