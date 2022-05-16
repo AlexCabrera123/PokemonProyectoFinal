@@ -1,4 +1,4 @@
-public class Objeto {
+public abstract class Objeto {
     //atributos
     //costo - double
     //cantidad - int
@@ -48,4 +48,8 @@ public class Objeto {
         this.nombre = nombre;
         this.tipo = tipo;
     }
+
+    public abstract boolean usar(Pokemon pokemon);
+
 }
+
