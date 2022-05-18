@@ -73,7 +73,8 @@ public class Entrenador extends Personaje {
         this.mochila = mochila;
     }
 
-    public Entrenador(String region, Pokemon pokemonMascota, int torneosGanados, ArrayList<Pokemon> pokedex, ArrayList<Objeto> mochila, ArrayList<Pokemon> pokedexOpuesto,int dinero) {
+    public Entrenador(String nombre, int nivel, char genero, String region, Pokemon pokemonMascota, int torneosGanados, ArrayList<Pokemon> pokedex, ArrayList<Objeto> mochila, ArrayList<Pokemon> pokedexOpuesto, int dinero) {
+        super(nombre, nivel, genero);
         this.region = region;
         this.pokemonMascota = pokemonMascota;
         this.torneosGanados = torneosGanados;
@@ -186,6 +187,18 @@ public class Entrenador extends Personaje {
             System.out.println(objeto);  //falta implementar toString en objeto
             indice++;
         }
+    }
+
+
+    @Override
+    public boolean pelear(Personaje pokemonContrario) {
+        //escoger pokemones para pelear
+        ArrayList<Pokemon> paraPelea = new ArrayList<>();
+        //mostrar pokedex
+        //el usuario escoge 3 pokemones
+        //se agregan para la pelea
+
+        return false;
     }
 }
 

@@ -34,7 +34,8 @@ public class Baya extends Objeto{
         if(this.efecto.equals("curación")) {
             pokemon.setHp(pokemon.getHp() + 20);
         }else if (this.efecto.equals("fuerza")) {
-            pokemon.setFuerza(pokemon.getFuerza() + 20);
+            pokemon.getHabilidad().setAtaqueBase(pokemon.getHabilidad().getAtaqueBase()+20);
+            return true;
         }else if(this.efecto.equals("velocidad")){
             pokemon.setVelocidad(pokemon.getVelocidad() + 20);
             return true;
