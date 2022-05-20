@@ -91,6 +91,10 @@ public class Pokemon{
                 '}';
     }
 
+    public boolean pelear(Pokemon pokemonContrario) {
+        return true;
+    }
+
     //tipo - String
     //habilidad - habilidad
     //hp - int

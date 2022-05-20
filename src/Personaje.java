@@ -50,4 +50,6 @@ public abstract class Personaje {
                 ", genero=" + genero +
                 '}';
     }
+
+    public abstract boolean pelear(Pokemon PokemonContrario);
 }
