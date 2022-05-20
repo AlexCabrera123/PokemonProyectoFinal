@@ -49,6 +49,16 @@ public abstract class Objeto {
         this.tipo = tipo;
     }
 
+    @Override
+    public String toString() {
+        return "Objeto{" +
+                "costo=" + costo +
+                ", cantidad=" + cantidad +
+                ", nombre='" + nombre + '\'' +
+                ", tipo='" + tipo + '\'' +
+                '}';
+    }
+
     public abstract boolean usar(Pokemon pokemon);
 
 }

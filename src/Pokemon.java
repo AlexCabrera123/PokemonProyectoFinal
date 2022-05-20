@@ -78,6 +78,19 @@ public class Pokemon{
         this.velocidad = velocidad;
     }
 
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "tipo='" + tipo + '\'' +
+                ", habilidad=" + habilidad +
+                ", hp=" + hp +
+                ", esLegendario=" + esLegendario +
+                ", debilContra='" + debilContra + '\'' +
+                ", fuertecontra='" + fuertecontra + '\'' +
+                ", velocidad=" + velocidad +
+                '}';
+    }
+
     //tipo - String
     //habilidad - habilidad
     //hp - int

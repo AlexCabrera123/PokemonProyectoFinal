@@ -92,4 +92,11 @@ public class Tienda {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Tienda{" +
+                "nombre='" + nombre + '\'' +
+                ", objetosDisponibles=" + objetosDisponibles +
+                '}';
+    }
 }

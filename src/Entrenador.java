@@ -189,6 +189,18 @@ public class Entrenador extends Personaje {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Entrenador{" +
+                "region='" + region + '\'' +
+                ", pokemonMascota=" + pokemonMascota +
+                ", torneosGanados=" + torneosGanados +
+                ", pokedex=" + pokedex +
+                ", mochila=" + mochila +
+                ", pokedexOpuesto=" + pokedexOpuesto +
+                ", dinero=" + dinero +
+                '}';
+    }
 
     @Override
     public boolean pelear(Personaje pokemonContrario) {
