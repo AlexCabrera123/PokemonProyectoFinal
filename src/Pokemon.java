@@ -1,4 +1,4 @@
-public class Pokemon{
+public class Pokemon extends Personaje{
 
     private String tipo;
     private Habilidad habilidad;
@@ -7,15 +7,6 @@ public class Pokemon{
     private String debilContra;
     private String fuertecontra;
 
-    private  int velocidad;
-
-    public int getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
 
     public String getTipo() {
         return tipo;
@@ -68,14 +59,19 @@ public class Pokemon{
     }
 
 
-    public Pokemon(String tipo, Habilidad habilidad, int hp, boolean esLegendario, String debilContra, String fuertecontra, int velocidad) {
+    public Pokemon(String nombre, int nivel, char genero, String tipo, Habilidad habilidad, int hp, boolean esLegendario, String debilContra, String fuertecontra) {
+        super(nombre, nivel, genero);
         this.tipo = tipo;
         this.habilidad = habilidad;
         this.hp = hp;
         this.esLegendario = esLegendario;
         this.debilContra = debilContra;
         this.fuertecontra = fuertecontra;
-        this.velocidad = velocidad;
+    }
+
+    @Override
+    public boolean pelear(Personaje personaje) {
+        return false;
     }
 
     @Override
@@ -87,24 +83,18 @@ public class Pokemon{
                 ", esLegendario=" + esLegendario +
                 ", debilContra='" + debilContra + '\'' +
                 ", fuertecontra='" + fuertecontra + '\'' +
-                ", velocidad=" + velocidad +
                 '}';
     }
 
-    public boolean pelear(Pokemon pokemonContrario) {
-        return true;
+    @Override
+    public boolean pelear(Pokemon PokemonContrario){
+
+
+        return false;
     }
 
-    //tipo - String
-    //habilidad - habilidad
-    //hp - int
-    //esLegendario - boolean
-    //debilContra - String
-    //fuerteContra - String
 
     //pelea
-    //consumì pocion o baya para ataque
-    //ataqueBase + 20
         //si mi pokemon es fuerte contra el pokemon opuesto
             //+ ataque de habilidad
         //si no si mi pokemon es debil contra el pokemon opuesto

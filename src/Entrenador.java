@@ -153,7 +153,7 @@ public class Entrenador extends Personaje {
         Scanner leer = new Scanner(System.in);
         System.out.println("Escoger pokemon opuesto");
         int escogidoOpuesto = leer.nextInt()-1;
-        mostrarPokedex();
+        mostrarPokedex(pokedex);
         System.out.println("Escoger pokemon propio");
         int escogidoMio = leer.nextInt()-1;
         System.out.println("Te lo cambio por " + pokedex.get(escogidoMio));
@@ -179,7 +179,7 @@ public class Entrenador extends Personaje {
     }
 
 
-    public void mostrarPokedex(){
+    public void mostrarPokedex(ArrayList<Pokemon> paraPelea){
         System.out.println("Los pokemones disponibles son: ");
         int indice = 1;
         for (Pokemon objeto : pokedex) {
@@ -209,10 +209,10 @@ public class Entrenador extends Personaje {
 
     @Override
     public boolean pelear(Pokemon PokemonContrario) {
-        //escoger pokemmon para pelear
+        //escoger pokemon para pelear
         Scanner scanner = new Scanner(System.in);
         ArrayList<Pokemon> paraPelea = new ArrayList<>();
-        mostrarPokedex();
+        mostrarPokedex(pokedex);
         System.out.println("Escoge 3 pokemones");
         for(int i=1; i<3; i++){
             System.out.println("ingresa pokemon");
@@ -227,7 +227,7 @@ public class Entrenador extends Personaje {
             if(paraPelea.size() !=0) {
                 if (respuesta == 1) {
                     System.out.println("Escoge el pokemon para pelear");
-                    mostrarPokedex();
+                    mostrarPokedex(pokedex);
                     int eleccion = scanner.nextInt();
                     //validar si es true o false
                     if(!paraPelea.get(eleccion).pelear(PokemonContrario)){
@@ -242,7 +242,7 @@ public class Entrenador extends Personaje {
                     System.out.println("Escoge la baya o pocion para el pokemon");
                     int eleccion = scanner.nextInt();
                     System.out.println("Escoge el pokemon para dar baya/pocion");
-                    mostrarPokedex();
+                    mostrarPokedex(pokedex);
                     //validar si retorno true o false
                     mochila.get(eleccion - 1).usar(paraPelea.get(scanner.nextInt()));
 
