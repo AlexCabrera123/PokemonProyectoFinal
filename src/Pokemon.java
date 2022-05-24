@@ -95,34 +95,35 @@ public class Pokemon extends Personaje {
 
         System.out.println("El entrenador invocó a" + PokemonContrario.getNombre());
 
+        int ataque,ataqueCPU;
+        //ataque del oponente
+        if(this.getTipo().equals(PokemonContrario.getDebilContra())){
+            ataque=this.getHabilidad().getAtaqueBase()+20;
+            ataqueCPU=PokemonContrario.getHabilidad().getAtaqueBase()-20;
+
+
+        }else if(this.getTipo().equals(PokemonContrario.getFuertecontra())){
+            ataque=this.getHabilidad().getAtaqueBase()-20;
+            ataqueCPU=PokemonContrario.getHabilidad().getAtaqueBase()+20;
+
+        }else{
+            ataque=this.getHabilidad().getAtaqueBase();
+            ataqueCPU=PokemonContrario.getHabilidad().getAtaqueBase();
+
+        }
+
         do {
-            int ataque;
-            //ataque del oponente
-            if (PokemonContrario.fuertecontra.equals("Agua") && this.tipo.equals("Agua")) {
-
-                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
-
-            } else if (PokemonContrario.fuertecontra.equals("Fuego") && this.tipo.equals("Fuego")) {
-                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
-            } else if (PokemonContrario.fuertecontra.equals("Tierra") && this.tipo.equals("Tierra")) {
-                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
-            } else if (PokemonContrario.fuertecontra.equals("Magia") && this.tipo.equals("Magia")) {
-                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
-            }
-            //ataque jugador
-            if (this.fuertecontra.equals("Fuego")&&PokemonContrario.tipo.equals("Fuego")) {
-                ataque = this.habilidad.getAtaqueBase()+20;
-            } else if (this.fuertecontra.equals("Agua")&&PokemonContrario.tipo.equals("Agua")) {
-                ataque = this.habilidad.getAtaqueBase() + 20;
-            } else if (this.fuertecontra.equals("Tierra")&&PokemonContrario.tipo.equals("Tierra")) {
-                ataque = this.habilidad.getAtaqueBase() + 20;
-            } else if (this.fuertecontra.equals("Magia")&&PokemonContrario.tipo.equals("Magia")) {
-                ataque = this.habilidad.getAtaqueBase() + 20;
-            }
+            System.out.println("TE TOCA ATACAR");
+            PokemonContrario.setHp(PokemonContrario.getHp()-ataque);
 
 
-            return true;
-        }while (this.hp != 0 || PokemonContrario.getHp() != 0) ;
+            System.out.println("ATAQUE DEL OPONENTE");
+            this.setHp(this.getHp()-ataqueCPU);
+
+        }while (this.getHp() > 0 || PokemonContrario.getHp() > 0) ;
+
+
+        return true;
     }
 }
 
