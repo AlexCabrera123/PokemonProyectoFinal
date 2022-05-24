@@ -1,4 +1,7 @@
-public class Pokemon extends Personaje{
+import java.util.Random;
+import java.util.Scanner;
+
+public class Pokemon extends Personaje {
 
     private String tipo;
     private Habilidad habilidad;
@@ -15,7 +18,6 @@ public class Pokemon extends Personaje{
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
 
 
     public Habilidad getHabilidad() {
@@ -87,11 +89,43 @@ public class Pokemon extends Personaje{
     }
 
     @Override
-    public boolean pelear(Pokemon PokemonContrario){
+    public boolean pelear(Pokemon PokemonContrario) {
+        Scanner leer = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.println("El entrenador invocó a" + PokemonContrario.getNombre());
+
+        do {
+            int ataque;
+            //ataque del oponente
+            if (PokemonContrario.fuertecontra.equals("Agua") && this.tipo.equals("Agua")) {
+
+                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
+
+            } else if (PokemonContrario.fuertecontra.equals("Fuego") && this.tipo.equals("Fuego")) {
+                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
+            } else if (PokemonContrario.fuertecontra.equals("Tierra") && this.tipo.equals("Tierra")) {
+                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
+            } else if (PokemonContrario.fuertecontra.equals("Magia") && this.tipo.equals("Magia")) {
+                ataque = PokemonContrario.getHabilidad().getAtaqueBase() + 20;
+            }
+            //ataque jugador
+            if (this.fuertecontra.equals("Fuego")&&PokemonContrario.tipo.equals("Fuego")) {
+                ataque = this.habilidad.getAtaqueBase()+20;
+            } else if (this.fuertecontra.equals("Agua")&&PokemonContrario.tipo.equals("Agua")) {
+                ataque = this.habilidad.getAtaqueBase() + 20;
+            } else if (this.fuertecontra.equals("Tierra")&&PokemonContrario.tipo.equals("Tierra")) {
+                ataque = this.habilidad.getAtaqueBase() + 20;
+            } else if (this.fuertecontra.equals("Magia")&&PokemonContrario.tipo.equals("Magia")) {
+                ataque = this.habilidad.getAtaqueBase() + 20;
+            }
 
 
-        return false;
+            return true;
+        }while (this.hp != 0 || PokemonContrario.getHp() != 0) ;
     }
+}
+
 
 
     //pelea
@@ -107,4 +141,3 @@ public class Pokemon extends Personaje{
 
 
 
-}
