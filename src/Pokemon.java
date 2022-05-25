@@ -115,11 +115,15 @@ public class Pokemon extends Personaje {
         do {
             System.out.println("TE TOCA ATACAR");
             PokemonContrario.setHp(PokemonContrario.getHp()-ataque);
-
-
-            System.out.println("ATAQUE DEL OPONENTE");
-            this.setHp(this.getHp()-ataqueCPU);
-
+            if(PokemonContrario.getHp()<0){
+                System.out.println("HAS GANADO LA PELEA");
+            } else {
+                System.out.println("ATAQUE DEL OPONENTE");
+                this.setHp(this.getHp()-ataqueCPU);
+                if (this.getHp()<0){
+                    System.out.println("HAS PERDIDO LA PELEA");
+                }
+            }
         }while (this.getHp() > 0 || PokemonContrario.getHp() > 0) ;
 
 
