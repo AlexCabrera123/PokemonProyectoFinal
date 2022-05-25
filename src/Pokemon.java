@@ -95,41 +95,57 @@ public class Pokemon extends Personaje {
 
         System.out.println("El entrenador invocó a" + PokemonContrario.getNombre());
 
-        int ataque,ataqueCPU;
+        int ataque, ataqueCPU;
         //ataque del oponente
-        if(this.getTipo().equals(PokemonContrario.getDebilContra())){
-            ataque=this.getHabilidad().getAtaqueBase()+20;
-            ataqueCPU=PokemonContrario.getHabilidad().getAtaqueBase()-20;
+        if (this.getTipo().equals(PokemonContrario.getDebilContra())) {
+            this.habilidad.setAtaqueBase(this.habilidad.getAtaqueBase() + 20);
+            PokemonContrario.getHabilidad().setAtaqueBase(PokemonContrario.getHabilidad().getAtaqueBase() - 20);
 
 
-        }else if(this.getTipo().equals(PokemonContrario.getFuertecontra())){
-            ataque=this.getHabilidad().getAtaqueBase()-20;
-            ataqueCPU=PokemonContrario.getHabilidad().getAtaqueBase()+20;
+        } else if (this.getTipo().equals(PokemonContrario.getFuertecontra())) {
+            this.habilidad.setAtaqueBase(this.habilidad.getAtaqueBase() - 20);
+            PokemonContrario.getHabilidad().setAtaqueBase(PokemonContrario.getHabilidad().getAtaqueBase() + 20);
 
-        }else{
-            ataque=this.getHabilidad().getAtaqueBase();
-            ataqueCPU=PokemonContrario.getHabilidad().getAtaqueBase();
+        } else {
 
         }
 
         do {
             System.out.println("TE TOCA ATACAR");
-            PokemonContrario.setHp(PokemonContrario.getHp()-ataque);
-            if(PokemonContrario.getHp()<0){
+            PokemonContrario.setHp(PokemonContrario.getHp() - this.habilidad.getAtaqueBase());
+            if (PokemonContrario.getHp() <= 0) {
                 System.out.println("HAS GANADO LA PELEA");
+                return true;
             } else {
                 System.out.println("ATAQUE DEL OPONENTE");
-                this.setHp(this.getHp()-ataqueCPU);
-                if (this.getHp()<0){
+                this.setHp(this.getHp() - PokemonContrario.getHabilidad().getAtaqueBase());
+                if (this.getHp() <= 0) {
                     System.out.println("HAS PERDIDO LA PELEA");
+                    return false;
+                }} else {
+                    PokemonContrario.setHp(PokemonContrario.getHp() - this.habilidad.getAtaqueBase());
+                    if (PokemonContrario.getHp() <= 0) {
+                        System.out.println("HAS GANADO LA PELEA");
+                        return true;
+                    }
+                }else{
+                    System.out.println("ATAQUE DEL OPONENTE");
+                    this.setHp(this.getHp() - PokemonContrario.getHabilidad().getAtaqueBase());
+                    if (this.getHp() <= 0) {
+                        System.out.println("HAS PERDIDO LA PELEA");
+                        return false;
+                    }
+
                 }
             }
-        }while (this.getHp() > 0 || PokemonContrario.getHp() > 0) ;
 
 
-        return true;
+            return true;
+        } while (this.getHp() > 0 || PokemonContrario.getHp() > 0) ;
     }
 }
+
+
 
 
 
