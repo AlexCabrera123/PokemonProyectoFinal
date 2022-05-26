@@ -107,7 +107,6 @@ public class Pokemon extends Personaje {
             PokemonContrario.getHabilidad().setAtaqueBase(PokemonContrario.getHabilidad().getAtaqueBase() + 20);
 
         } else {
-
         }
 
         do {
@@ -116,19 +115,20 @@ public class Pokemon extends Personaje {
             if (PokemonContrario.getHp() <= 0) {
                 System.out.println("HAS GANADO LA PELEA");
                 return true;
-            } else {
+            } else{
                 System.out.println("ATAQUE DEL OPONENTE");
                 this.setHp(this.getHp() - PokemonContrario.getHabilidad().getAtaqueBase());
                 if (this.getHp() <= 0) {
                     System.out.println("HAS PERDIDO LA PELEA");
                     return false;
-                }} else {
+                }
+            }
+            System.out.println("TE TOCA ATACAR DE NUEVO");
                     PokemonContrario.setHp(PokemonContrario.getHp() - this.habilidad.getAtaqueBase());
                     if (PokemonContrario.getHp() <= 0) {
                         System.out.println("HAS GANADO LA PELEA");
                         return true;
-                    }
-                }else{
+                    }else{
                     System.out.println("ATAQUE DEL OPONENTE");
                     this.setHp(this.getHp() - PokemonContrario.getHabilidad().getAtaqueBase());
                     if (this.getHp() <= 0) {
@@ -137,11 +137,7 @@ public class Pokemon extends Personaje {
                     }
 
                 }
-            }
-
-
-            return true;
-        } while (this.getHp() > 0 || PokemonContrario.getHp() > 0) ;
+            }while (true) ;
     }
 }
 
