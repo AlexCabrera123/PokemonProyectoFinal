@@ -14,8 +14,13 @@ public class Main implements UtilInterface{
         habilidades.add(habilidad4);
 
 
+        System.out.println("1.-EXPLORAR");
+        System.out.println("2.-ENTRAR A TIENDA");
+        System.out.println("3.-TIRAR OBJETO");
+        System.out.println("4.-VER ESTADISTICAS");
+        System.out.println("5.-TIEMPO JUGADO");
 
-
+        /*
             long tiempoInicial = System.currentTimeMillis();
 
             Thread.sleep(2000);
@@ -25,7 +30,7 @@ public class Main implements UtilInterface{
             double tiempoPresente = (double) ((fin - tiempoInicial)/1000);
 
             System.out.println(tiempoPresente +" segundos");
-
+            */
 
 
 
@@ -53,11 +58,46 @@ public class Main implements UtilInterface{
 
     @Override
     public String[] debilYFuerteAleatorio(String tipo) {
+
         return new String[0];
     }
 
     @Override
     public String[] nombresAleatorios(String tipo) {
-        return new String[0];
+        String banco[] = new String[4];
+
+        switch (tipo){
+            case ("AGUA"):
+                banco [0] = "squirtle";
+                banco [1] = "magicarp";
+                banco [2] = "truchin";
+                banco [3] = "pescadin";
+                break;
+
+            case ("FUEGO"):
+                banco[0] = "dragonite";
+                banco[1] = "charizard";
+                banco[2] = "arkanite";
+                banco[3] = "chispitas";
+                break;
+
+            case ("ELECTRICO"):
+                banco[0] = "pikachu";
+                banco[1] = "voltro";
+                banco[2] = "elektro";
+                banco[3] = "magnit";
+                break;
+
+            case ("PLANTA"):
+                banco[0] = "bulbasaur";
+                banco[1] = "metapod";
+                banco[2] = "bellstroke";
+                banco[3] = "obish";
+                break;
+
+
+        }
+
+        return banco;
     }
 }
