@@ -14,11 +14,7 @@ public class Main implements UtilInterface{
         habilidades.add(habilidad4);
 
 
-        System.out.println("1.-EXPLORAR");
-        System.out.println("2.-ENTRAR A TIENDA");
-        System.out.println("3.-TIRAR OBJETO");
-        System.out.println("4.-VER ESTADISTICAS");
-        System.out.println("5.-TIEMPO JUGADO");
+
 
         /*
             long tiempoInicial = System.currentTimeMillis();
@@ -43,7 +39,11 @@ public class Main implements UtilInterface{
 
     @Override
     public void mostrarMenu() {
-
+        System.out.println("1.-EXPLORAR");
+        System.out.println("2.-ENTRAR A TIENDA");
+        System.out.println("3.-TIRAR OBJETO");
+        System.out.println("4.-VER ESTADISTICAS");
+        System.out.println("5.-TIEMPO JUGADO");
     }
 
     @Override
@@ -58,8 +58,28 @@ public class Main implements UtilInterface{
 
     @Override
     public String[] debilYFuerteAleatorio(String tipo) {
+        String debilyFuerte[] = new String[2];
+        switch (tipo){
+            case("AGUA"):
+                debilyFuerte[0] = "ELECTRICO";
+                debilyFuerte[1] = "FUEGO";
+                break;
 
-        return new String[0];
+            case ("FUEGO"):
+                debilyFuerte[0] = "AGUA";
+                debilyFuerte[1] = "PLANTA";
+                break;
+
+            case ("ELECTRICO"):
+                debilyFuerte[0] = "PLANTA";
+                debilyFuerte[1] = "AGUA";
+                break;
+
+            case("PLANTA"):
+                debilyFuerte[0] = "FUEGO";
+                debilyFuerte[1] = "ELECTRICO";
+        }
+        return debilyFuerte;
     }
 
     @Override
