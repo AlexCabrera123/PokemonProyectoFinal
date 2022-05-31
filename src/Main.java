@@ -16,25 +16,29 @@ public class Main implements UtilInterface{
 
 
 
-        /*
-            long tiempoInicial = System.currentTimeMillis();
 
-            Thread.sleep(2000);
-
-            long fin = System.currentTimeMillis();
-
-            double tiempoPresente = (double) ((fin - tiempoInicial)/1000);
-
-            System.out.println(tiempoPresente +" segundos");
-            */
 
 
 
 }
 
-    @Override
-    public void tiempoJugado(long tiempoIncial, long tiempoPresente) {
 
+    @Override
+    public void tiempoJugado(long tiempoIncial, long tiempoPresente) throws InterruptedException {
+
+    }
+
+    @Override
+    public void tiempoJugado(long tiempoIncial, double tiempoPresente) throws InterruptedException {
+        long tiempoInicial = System.currentTimeMillis();
+
+        Thread.sleep(2000);
+
+        long fin = System.currentTimeMillis();
+
+        tiempoPresente = (double) ((fin - tiempoInicial)/1000);
+
+        System.out.println("Has jugado" +tiempoPresente +"segundos");
     }
 
     @Override

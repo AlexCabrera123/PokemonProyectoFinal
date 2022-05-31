@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 public interface UtilInterface {
-    void tiempoJugado(long tiempoIncial, long tiempoPresente);
+    void tiempoJugado(long tiempoIncial, long tiempoPresente) throws InterruptedException;
+
+    void tiempoJugado(long tiempoIncial, double tiempoPresente) throws InterruptedException;
 
     void mostrarMenu();
 
