@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main implements UtilInterface{
     static ArrayList<Habilidad> habilidades = new ArrayList<>();
@@ -7,17 +9,47 @@ public class Main implements UtilInterface{
     static Habilidad habilidad2 = new Habilidad("PUÑO DE FUEGO", "GOLPE CON UN AURA DE FUEGO",40);
     static Habilidad habilidad3 = new Habilidad("ATAQUE PSIQUICO", "ATAQUE MENTAL PARA RETARDS", 50 );
     static Habilidad habilidad4 = new Habilidad("VOMITO EXPLOSIVO", "SALIVA CON ACIDO MORTAL", 50 );
+    static ArrayList<String>tiposPokemon;
+
 
     public static void main(String[] args) throws InterruptedException {
+        long tiempoIncicial= System.currentTimeMillis();
         habilidades.add(habilidad1);
         habilidades.add(habilidad2);
         habilidades.add(habilidad3);
         habilidades.add(habilidad4);
+        tiposPokemon=new ArrayList<>(Arrays.asList("agua","fuego","tierra","electrico","planta"));//..etc
+        Main objetoMain= new Main();
+
+        int respuesta=1;
+        Scanner scanner=new Scanner(System.in);
+        while (respuesta!=0){
+            objetoMain.mostrarMenu();
+            System.out.println("elija una opcion ");
+            respuesta=scanner.nextInt();
+            if(respuesta==1){
+                int dejarExplorar=1;
+                while (dejarExplorar!=0){
+                    Thread.sleep(1500);
+                    System.out.println("aparecio un pokemon salvaje ");
+                    System.out.println(objetoMain.crearPokemonAleatorio());
+                    System.out.println("quieres seguir explorando 1.si  0. no");
+                    //atrapar, pelear, dejar
+                    dejarExplorar=scanner.nextInt();
+                }
+            }
+        }
 
 
+        Thread.sleep(1500);
+        //tamar tiempo jugado
+        objetoMain.tiempoJugado(tiempoIncicial,System.currentTimeMillis());
+        System.out.println(objetoMain.crearPokemonAleatorio());
+        System.out.println(objetoMain.crearPokemonAleatorio());
+        System.out.println(objetoMain.crearPokemonAleatorio());
 
 
-}
+    }
 
 
     @Override
@@ -49,14 +81,29 @@ public class Main implements UtilInterface{
 
     @Override
     public Pokemon crearPokemonAleatorio() {
-        return null;
+        Random random=new Random();
+
+        int numTipo=random.nextInt(tiposPokemon.size());
+        String tipo=sacarAleatorio(tiposPokemon);
+        int tamNombre= nombresAleatorios(tipo).length;
+        int nombre= random.nextInt(tamNombre);
+        int hp=random.nextInt(200);
+        boolean legendario =random.nextBoolean();
+        String[] debilFuerte=debilYFuerteAleatorio(tipo);
+        int numHabilidad=random.nextInt(habilidades.size());
+        String nombreFinal=nombresAleatorios(tipo)[nombre];
+        int nivel=random.nextInt(habilidades.size());
+        char genero=random.nextInt(15)< 5 ? 'f':'m'; //operador ternario
+
+        return new Pokemon(nombreFinal,nivel,genero,tipo,sacarAleatorio(habilidades),hp,legendario,debilFuerte[0],debilFuerte[1]);
     }
+
 
     @Override
     public <T> T sacarAleatorio(ArrayList<T> arrayList) {
 
         Random random = new Random();
-        int indice = random.nextInt(0,arrayList.size()-1);
+        int indice = random.nextInt(arrayList.size()-1);
         return arrayList.get(indice);
     }
 
