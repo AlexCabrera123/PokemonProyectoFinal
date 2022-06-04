@@ -114,11 +114,12 @@ public class Entrenador extends Personaje {
     //que el usuario escoja cual tirar
 
     public boolean tirarObjeto(int indice) {
-        if (indice > mochila.size() - 1) {
-            return false;
-        } else {
+        try {
             mochila.remove(indice);
-            return true;
+            return false;
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("Ese objeto no existe");
+            return false;
         }
     }
 
@@ -259,6 +260,9 @@ public class Entrenador extends Personaje {
         //
         return false;
     }
+
+
+
 }
 
 

@@ -32,34 +32,31 @@ public class Tienda {
     //metodos
 
     public boolean usuarioComprar(double dinero, int cantidad, int indiceObjeto) {
+        try {
 
 
-        //validar que hay suficientes objetos del tipo requerido (?)
-        if (indiceObjeto > objetosDisponibles.size()) {
-            System.out.println("ERROR NO EXISTE ESE OBJETO");
-        } else {
             if (objetosDisponibles.get(indiceObjeto).cantidad >= cantidad) {
                 double precioTotal = cantidad * objetosDisponibles.get(indiceObjeto).costo;
-                if (precioTotal >= dinero) {
-                    System.out.println("VENDIDO");
+                if (dinero >= precioTotal) {
+                    System.out.println("Vendido");
+                    return true;
                 } else {
-                    System.out.println("NO LE ALCANZA, LE FALTAN: " + (precioTotal - dinero));
+                    System.out.println("No tienes dinero, te falta: " + (precioTotal - dinero));
                     return false;
                 }
             } else {
-                System.out.println("NO TENEMOS LA CANTIDAD SOLICITADA");
+                System.out.println("No existe la cantidad solicitada");
                 return false;
+
+
             }
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("No existe el objeto");
+            return false;
         }
-        //Si hay cantidad y existe en el arreglo
-        //si si tengo, validar que el dinero sea suficiente
-        //si es suficiente, le vendo
-        //si no
-        //mostrar que no le alcanza
-        // si no
-        //hacemos excepcion de que no hay producto y se repite la pregunta
-        return false;
+
     }
+
     //comprar
 
     public boolean usuarioVender(Objeto objeto, int cantidad){
